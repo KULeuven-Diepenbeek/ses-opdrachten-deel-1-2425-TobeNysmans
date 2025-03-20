@@ -3,12 +3,126 @@
  */
 package be.ses;
 
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 
 public class AppTest {
     @Test public void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    }
+
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_4_5_danResult2410(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(2,4,1,0,
+                                                                  1,1,0,0,
+                                                                  0,0,1,0,
+                                                                  0,0,0,0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4, 5);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly(2, 4, 10);
+    }
+
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid4_4_4danResult5(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(2,4,1,0,
+                                                                  1,1,0,0,
+                                                                  0,0,1,0,
+                                                                  0,0,0,0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4, 4);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly(5);
+    }
+
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_4_0_danResult_(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(2,4,1,0,
+                                                                  1,1,0,0,
+                                                                  0,0,1,0,
+                                                                  0,0,0,0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4, 0);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly();
+    }
+
+    @Test public void gegevenGrid1410110000100000_wanneerCheckNeighboursInGrid_1_16_5_danResult4_5(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(1,
+                                                                  4,
+                                                                  1,
+                                                                  0,
+                                                                  1,
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 1, 16, 5);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly(4,5);
+    }
+
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_4_20_danResult(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(2,4,1,0,
+                                                                  1,1,0,0,
+                                                                  0,0,1,0,
+                                                                  0,0,0,0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4, 20);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly(15);
+    }
+
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_0_5_danResult(){
+        //Arrange
+        CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
+        
+        //act
+        List<Integer> grid = new ArrayList<Integer>(Arrays.asList(2,4,1,0,
+                                                                  1,1,0,0,
+                                                                  0,0,1,0,
+                                                                  0,0,0,0));
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 0, 0, 5);
+        System.out.println(result);
+
+        //assert
+        assertThat(result).containsExactly(4,5);
     }
 }
