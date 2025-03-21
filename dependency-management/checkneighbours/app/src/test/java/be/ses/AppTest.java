@@ -94,7 +94,7 @@ public class AppTest {
         assertThat(result).containsExactly(4,5);
     }
 
-    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_4_20_danResult(){
+    @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_4_20_danResultError(){
         //Arrange
         CheckNeighboursInGrid checkNeighboursInGrid = new CheckNeighboursInGrid();
         
@@ -103,11 +103,11 @@ public class AppTest {
                                                                   1,1,0,0,
                                                                   0,0,1,0,
                                                                   0,0,0,0));
-        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4, 20);
+        Iterable<Integer> result = checkNeighboursInGrid.getSameNeighboursIds(grid, 4, 4,   13);
         System.out.println(result);
 
         //assert
-        assertThat(result).containsExactly(15);
+        assertThat(result).containsExactly(8,9,12,14);
     }
 
     @Test public void gegevenGrid2410110000100000_wanneerCheckNeighboursInGrid_4_0_5_danResult(){
